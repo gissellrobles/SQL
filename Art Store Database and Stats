@@ -1,0 +1,34 @@
+--Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, sale_price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "paint brush kit", "paint supplies", 3.99, 15);
+INSERT INTO store VALUES (2, "paint spatula", "paint supplies", 0.99, 45);
+INSERT INTO store VALUES (3, "paint pallete", "paint supplies", 1.99, 100);
+INSERT INTO store VALUES (4, "synthetic sponge", "paint supplies", 0.99, 67);
+INSERT INTO store VALUES (5, "artist tape", "paint supplies", 3.25, 52);
+INSERT INTO store VALUES (6, "watercolor paint", "paint", 4.99, 35);
+INSERT INTO store VALUES (7, "acrylic paint", "paint", 8.99, 37);
+INSERT INTO store VALUES (8, "spray paint", "paint", 4.99, 88);
+INSERT INTO store VALUES (9, "paint markers", "paint", 4.99, 60);
+INSERT INTO store VALUES (10, "gouache paint", "paint", 9.99, 22);
+INSERT INTO store VALUES (11, "watercolor pad", "paper pads", 6.99, 10);
+INSERT INTO store VALUES (12, "acrylic pad", "paper pads", 5.99, 12);
+INSERT INTO store VALUES (13, "marker pad", "paper pads", 5.99, 1);
+INSERT INTO store VALUES (14, "sketch pad", "paper pads", 5.99, 33);
+INSERT INTO store VALUES (15, "mixed media pad", "paper pads", 8.99, 32);
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY sale_price desc; 
+
+--what is the avg price of items in the paint section? 
+SELECT AVG(sale_price) "avg paint item price"
+FROM store
+where section='paint'; 
+
+--what are the most 3 popular items? 
+SELECT item, sale_price, popularity
+FROM store
+order by popularity desc
+limit 3;
